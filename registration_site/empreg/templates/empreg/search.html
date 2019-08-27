@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title> SEARCH RECORD </title>
+   </head>
+   <body>
+      <div id="header">
+        <h1> EMPLOYEE RECORD </h1>
+        <div id="nav">
+         <a href="/empreg/home">home</a>
+         <a href="/empreg/search">search</a>
+        </div>
+      </div>
+      <div id="main">
+          <h2>SEARCH RECORD </h2>
+          <from action ="empreg/search" method="post">
+          <% csrf_token %}
+          {{from}}
+          <input type="submit" value="search">
+          </form>
+          {% if b %}
+            <table>
+               <thead>
+                  <th> name </th>
+                  <th> account_number</th>
+                  <th> ifsc </th>
+                  <th> payment_type </th>
+               </thead>
+           {% endif %}
+           {% for Employee in b %}
+           <tr>
+              <td>{{b.name}}</td>
+              <td>{{b.account_number}}</td>
+              <td>{{b.ifsc}}</td>
+              <td>{{b.payment_type}}</td>
+          </tr>
+          {% endfor %}
+          </table>
+    </div>
+  </body>
+</html>
